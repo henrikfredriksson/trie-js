@@ -7,9 +7,10 @@ build:
         override:
           - js-scrutinizer-run
           - command: "yarn test"
-            coverage:
-              file: coverage
 
-              # These formats are supported:
-              # clover, cobertura, jacoco, python-cc, ruby-cc, go-cc, lcov
-              format: clover
+    coverage:
+      file: coverage
+
+      # These formats are supported:
+      # clover, cobertura, jacoco, python-cc, ruby-cc, go-cc, lcov
+      format: clover
