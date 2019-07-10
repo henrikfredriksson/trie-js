@@ -72,7 +72,7 @@ describe('Trie benchmark tests', () => {
       'gloeal',
       'gloeocapsa',
       'gloeocapsoid',
-      'gloeosporium',
+      'gloeosporium'
     ])
 
     expect(trie.addWords('Bumfuzzle').searchWord('BUMFUZZLE')).toBeTruthy()

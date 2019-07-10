@@ -1,4 +1,4 @@
-/*!
+/**
  * @author      Henrik Fredriksson
  * @email       henrikfredriksson2@gmail.com
  * @version     1.0
@@ -6,13 +6,16 @@
 
 const Node = require('./node')
 
-// const Node = require('./Node')
-
+/**
+ * Trie data structure
+ *
+ * @class Trie
+ */
 class Trie {
   /**
-   *Creates an instance of Trie.
-  * @memberof Trie
-  */
+   * Creates an instance of Trie.
+   * @memberof Trie
+   */
   constructor () {
     this.root = new Node('')
   }
@@ -84,7 +87,9 @@ class Trie {
    * @memberof Trie
    */
   searchWord (word) {
-    if (this.getTailNode(word)) return this.getTailNode(word).isWord()
+    if (this.getTailNode(word)) {
+      return this.getTailNode(word).isWord()
+    }
 
     return false
   }
@@ -115,7 +120,9 @@ class Trie {
     }
 
     if (current.isWord()) {
-      if (!current.children) return [prefix]
+      if (!current.children) {
+        return [prefix]
+      }
 
       this.suggestions.push(prefix)
     }
@@ -176,9 +183,13 @@ class Trie {
   _getAllWords (prefix, node) {
     prefix = prefix.concat(node.value)
 
-    if (node.isWord()) this.words.push(prefix)
+    if (node.isWord()) {
+      this.words.push(prefix)
+    }
 
-    if (!node.children) return
+    if (!node.children) {
+      return
+    }
 
     Object.values(node.children).forEach(node => {
       this._getAllWords(prefix, node)
