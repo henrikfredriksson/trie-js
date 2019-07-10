@@ -2,13 +2,7 @@ checks:
   javascript: true
 build:
   nodes:
-    coverage:
+    analysis:
       tests:
         override:
-          - command: "yarn test"
-          coverage:
-            file: coverage
-
-            # These formats are supported:
-            # clover, cobertura, jacoco, python-cc, ruby-cc, go-cc, lcov
-            format: clover
+          - js-scrutinizer-run
