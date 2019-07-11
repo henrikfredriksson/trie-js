@@ -55,26 +55,32 @@ describe('Simple Trie tests', () => {
 })
 
 describe('Trie benchmark tests', () => {
-  test('Benchmark tests', () => {
+  beforeAll(() => {
     const fs = require('fs')
     const path = require('path')
 
     const filename = path.join(__dirname, 'dictionary.txt')
     const words = fs.readFileSync(filename, 'utf8').split('\n')
 
-    const trie = new Trie()
-    trie.addWords(words)
+    this.trie = new Trie()
+    this.trie.addWords(words)
+  })
 
-    expect(trie.searchWord('unpatched')).toBeTruthy()
+  test('test word', () => {
+    expect(this.trie.searchWord('unpatched')).toBeTruthy()
+  })
 
-    expect(trie.suggestWord('gloe')).toStrictEqual([
+  test('test suggestions  ', () => {
+    expect(this.trie.suggestWord('gloe')).toStrictEqual([
       'gloea',
       'gloeal',
       'gloeocapsa',
       'gloeocapsoid',
       'gloeosporium'
     ])
+  })
 
-    expect(trie.addWords('Bumfuzzle').searchWord('BUMFUZZLE')).toBeTruthy()
+  test('test add word ', () => {
+    expect(this.trie.addWords('Bumfuzzle').searchWord('BUMFUZZLE')).toBeTruthy()
   })
 })
