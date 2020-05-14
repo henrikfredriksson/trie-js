@@ -19,7 +19,7 @@ class Node {
   /**
    * Return true if node is tailnode, false otherwise
    *
-   * @returns
+   * @returns {Boolean}
    * @memberof Node
    */
   isWord () {
